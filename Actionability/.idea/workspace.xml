@@ -54,9 +54,12 @@
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+<<<<<<< HEAD
             <state relative-caret-position="420">
               <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
 =======
+=======
+>>>>>>> parent of dbd136b... Merge branch 'master' of https://github.com/arenn0/TweetActionabilityClassification
             <state relative-caret-position="225">
               <caret line="22" column="58" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
 >>>>>>> parent of dbd136b... Merge branch 'master' of https://github.com/arenn0/TweetActionabilityClassification
@@ -72,14 +75,20 @@
         <entry file="file://$PROJECT_DIR$/wnet.py">
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+<<<<<<< HEAD
             <state relative-caret-position="440">
               <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
 =======
+=======
+>>>>>>> parent of dbd136b... Merge branch 'master' of https://github.com/arenn0/TweetActionabilityClassification
             <state relative-caret-position="60">
               <caret line="3" selection-start-line="3" selection-end-line="3" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
+<<<<<<< HEAD
+>>>>>>> parent of dbd136b... Merge branch 'master' of https://github.com/arenn0/TweetActionabilityClassification
+=======
 >>>>>>> parent of dbd136b... Merge branch 'master' of https://github.com/arenn0/TweetActionabilityClassification
             </state>
           </provider>
@@ -106,16 +115,22 @@
     </option>
   </component>
 <<<<<<< HEAD
+<<<<<<< HEAD
   <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="301" />
     <option name="y" value="-8" />
     <option name="width" value="1493" />
     <option name="height" value="532" />
 =======
+=======
+>>>>>>> parent of dbd136b... Merge branch 'master' of https://github.com/arenn0/TweetActionabilityClassification
   <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="953" />
     <option name="width" value="974" />
     <option name="height" value="1057" />
+<<<<<<< HEAD
+>>>>>>> parent of dbd136b... Merge branch 'master' of https://github.com/arenn0/TweetActionabilityClassification
+=======
 >>>>>>> parent of dbd136b... Merge branch 'master' of https://github.com/arenn0/TweetActionabilityClassification
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -124,6 +139,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <pane id="ProjectPane">
         <subPane>
@@ -136,6 +152,9 @@
           <select />
         </subPane>
       </pane>
+=======
+      <pane id="ProjectPane" />
+>>>>>>> parent of dbd136b... Merge branch 'master' of https://github.com/arenn0/TweetActionabilityClassification
 =======
       <pane id="ProjectPane" />
 >>>>>>> parent of dbd136b... Merge branch 'master' of https://github.com/arenn0/TweetActionabilityClassification
@@ -249,9 +268,16 @@
   </component>
   <component name="ToolWindowManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.07835821" />
+=======
+    <frame x="953" y="0" width="974" height="1057" extended-state="0" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16083151" />
+>>>>>>> parent of dbd136b... Merge branch 'master' of https://github.com/arenn0/TweetActionabilityClassification
 =======
     <frame x="953" y="0" width="974" height="1057" extended-state="0" />
     <layout>
@@ -266,7 +292,11 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Run" order="2" weight="0.41845495" />
+=======
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4225352" />
+>>>>>>> parent of dbd136b... Merge branch 'master' of https://github.com/arenn0/TweetActionabilityClassification
 =======
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4225352" />
 >>>>>>> parent of dbd136b... Merge branch 'master' of https://github.com/arenn0/TweetActionabilityClassification
@@ -294,6 +324,7 @@
     <entry file="file://C:/Program Files (x86)/Microsoft Visual Studio/Shared/Python36_64/Lib/encodings/cp1252.py">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <state relative-caret-position="420">
           <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
           <folding>
@@ -302,11 +333,26 @@
 =======
         <state relative-caret-position="169">
           <caret line="22" selection-start-line="22" selection-end-line="22" />
+=======
+        <state relative-caret-position="169">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wnet.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+>>>>>>> parent of dbd136b... Merge branch 'master' of https://github.com/arenn0/TweetActionabilityClassification
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="60">
           <caret line="3" selection-start-line="3" selection-end-line="3" />
           <folding>
@@ -322,11 +368,16 @@
         <state relative-caret-position="440">
           <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
 =======
+=======
+>>>>>>> parent of dbd136b... Merge branch 'master' of https://github.com/arenn0/TweetActionabilityClassification
         <state relative-caret-position="225">
           <caret line="22" column="58" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
+<<<<<<< HEAD
+>>>>>>> parent of dbd136b... Merge branch 'master' of https://github.com/arenn0/TweetActionabilityClassification
+=======
 >>>>>>> parent of dbd136b... Merge branch 'master' of https://github.com/arenn0/TweetActionabilityClassification
         </state>
       </provider>
