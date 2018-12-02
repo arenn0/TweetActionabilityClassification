@@ -2,6 +2,14 @@ import csv
 import sys
 import os
 
+
+def preprocess_corpus(corpus):
+    for file_name in corpus:
+        for i in corpus[file_name]:
+            for word in corpus[file_name][i]:
+                pass
+
+
 def load_dataset (dirName):
     directory_path = dirName
     directory_list = sorted(os.listdir(directory_path))
@@ -30,3 +38,4 @@ def load_dataset (dirName):
 corpus = load_dataset(sys.argv[1])
 
 print(corpus)
+corpus = preprocess_corpus(corpus)
