@@ -5,6 +5,7 @@ def create_dictionary(words_):
     dictionary = {}
     maxs = {}
     i=-1
+
     for documentId in words_:
         maxrel = 0
         for tweetid in words_[documentId]:
@@ -25,20 +26,20 @@ def create_dictionary(words_):
                     # print("max of " + str(documentId) + " is " + word + ": " + str(maxrel))
             maxs[i] = maxrel
 
-    return [dictionary, maxs, i]
+    return [dictionary, maxs, i + 1]
 
 # We need filtered_final to compute tf denominator
 def compute_tfidf(dictionary, d, maxs, ndocs):
     table = {}
-    # print(dictionary)
+    print(ndocs)
     for word in dictionary.keys():
+
         table[word] = {}
         for docId in dictionary[word]:
-
             if word in d:
                 if NORMALIZE:
                     # print(word)
-                    # print(" docId " + str(docId) + " length " + str(len(f[docId])) + " " + str(f[docId]))
+                    # print(" docId " + str(docId) + " length " + str(ndocs) + " " + str(d[word]))
                     table[word][docId] = dictionary[word][docId] /\
                                      maxs[docId] *\
                                      math.log(ndocs/len(d[word]), 2)
@@ -47,8 +48,10 @@ def compute_tfidf(dictionary, d, maxs, ndocs):
                                          math.log(ndocs / len(d[word]), 2)
     return table
 
+def get_queries(associations):
+    return associations.keys()
 
-def calc_rank(table_docs, table_queries, queries_):
+def calc_rank(table_docs, table_queries, queries_, docs_, nqueries):
     table_similarity = {}
     di = {}
     # print(queries_)
@@ -56,7 +59,8 @@ def calc_rank(table_docs, table_queries, queries_):
     for queryId in range(0, nqueries):  # for each query
         # print(q)
         indexes[queryId] = []
-        for word in queries_[queryId]:
+        for word in queries_[0][queryId]:
+
             if word in table_docs:
                 for docId in table_docs[word]:  # for each document
                     # print(docId)
@@ -73,14 +77,22 @@ def calc_rank(table_docs, table_queries, queries_):
 
             similarity = 0
 
-            for word in queries_[queryId]:
+            for word in queries_[0][queryId]:
                 if word in table_queries and word in table_docs:
                     if docId in table_docs[word]:
                         similarity += table_docs[word][docId] * table_queries[word][queryId]
-                        # print("Query: " + str(queryId) + " word: " + word + " docID: " + str(docId) + " tfidf: " + str(table_docs[word][docId]))
+                        #print("Query: " + str(queryId) + " word: " + word + " docID: " + str(docId) + " tfidf: " + str(table_docs[word][docId]) + " " + str(table_queries[word][queryId]))
+                        #print(similarity)
             table_similarity[queryId][docId] = similarity / math.sqrt(q * di)
+            #print(table_similarity[queryId][docId])
+            #print(similarity)
 
     return table_similarity
 
-def get_queries(associations):
-    return associations.keys()
+
+def calc_q(table, id):
+    sum = 0
+    for word in table:
+        if id in table[word]:
+            sum += table[word][id] ** 2
+    return sum

@@ -2,8 +2,19 @@ import csv
 import sys
 import os
 import string
-import nltk
+import operator
 import tfidf
+import nltk
+dler = nltk.downloader.Downloader()
+dler._update_index()
+dler.download("wordnet")
+import wnet
+# nltk.download()
+# First, you're going to need to import wordnet:
+from nltk.corpus import wordnet as wordnet
+
+
+
 
 def preprocess_corpus(corpus):
     c = {}
@@ -57,18 +68,55 @@ def load_dataset (dirName):
     return corpus
 
 
+def load_queries(fileName):
+    content = open(fileName, "r")
+
+    terms = set()
+    q = []
+    query = ''
+    for _i in content:
+        for _j in _i:
+            if _j != '.' and _j != '\n':
+                query += _j
+            else:
+                if query:
+                    if query[len(query) - 1] != ' ':
+                        query += ' '
+                    q.append(query)
+                    [terms.add(query.split(" ")[i]) for i in range(len(query.split(" ")))]
+                    query = ''
+    if '' in terms:
+        terms.remove('')
+    final = []
+    final.append(list(terms))
+    return {0: final}
+
+
+
 corpus = load_dataset(sys.argv[1])
+queries = load_queries(sys.argv[2])
 
-#print(corpus)
+print(queries)
+#print(queries)
 corpus = preprocess_corpus(corpus)
-
-[dictionary, max_docs, n_tweets] = tfidf.create_dictionary(corpus)
-dictionary_text_tfidf = tfidf.compute_tfidf(dictionary, dictionary, max_docs, n_tweets)
-
-
-print(dictionary)
+print(corpus)
+[dictionary_texts, max_docs, n_tweets] = tfidf.create_dictionary(corpus)
+[dictionary_queries, max_queries, n_queries] = tfidf.create_dictionary(queries)
+dictionary_text_tfidf = tfidf.compute_tfidf(dictionary_texts, dictionary_texts, max_docs, n_tweets)
 print(dictionary_text_tfidf)
+dictionary_queries_tfidf = tfidf.compute_tfidf(dictionary_queries, dictionary_texts, max_queries, n_tweets)
 
-filtered_final_queries = get_queries(associations)
+similarities = tfidf.calc_rank(dictionary_text_tfidf, dictionary_queries_tfidf, queries, n_tweets, n_queries)
+mapSimilarities = wnet.read_file(sys.argv[2])
+print(mapSimilarities)
+#print(dictionary)
+#print(dictionary_text_tfidf)
 
-similarities = tfidf.calc_rank(dictionary_text_tfidf, dictionary_queries_tfidf, filtered_final_queries)
+# filtered_final_queries = get_queries(associations)
+print(similarities)
+sorted_similarities = similarities[0]
+
+print(sorted_similarities)
+sorted_similarities = sorted(sorted_similarities.items(), key=operator.itemgetter(1), reverse=True)
+print(sorted_similarities)
+print(corpus)
