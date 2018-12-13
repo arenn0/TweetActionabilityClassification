@@ -12,7 +12,7 @@ import wnet
 # nltk.download()
 # First, you're going to need to import wordnet:
 from nltk.corpus import wordnet as wordnet
-
+EXPAND = True
 
 
 
@@ -69,7 +69,7 @@ def load_dataset (dirName):
 
 
 def load_queries(fileName):
-    content = open(fileName, "r")
+    """content = open(fileName, "r")
 
     terms = set()
     q = []
@@ -89,34 +89,53 @@ def load_queries(fileName):
         terms.remove('')
     final = []
     final.append(list(terms))
-    return {0: final}
+
+
+
+    return {0: final}, mapSimilarities
+    """
+    mapSimilarities = wnet.read_file(sys.argv[2])
+    print(mapSimilarities)
+    return {0: [list(mapSimilarities.keys())]}, mapSimilarities
 
 
 
 corpus = load_dataset(sys.argv[1])
-queries = load_queries(sys.argv[2])
+queries, wp_similarities = load_queries(sys.argv[2])
 
-print(queries)
+#print(queries)
 #print(queries)
 corpus = preprocess_corpus(corpus)
-print(corpus)
+#print(corpus)
 [dictionary_texts, max_docs, n_tweets] = tfidf.create_dictionary(corpus)
+#print(corpus)
+#print(queries)
 [dictionary_queries, max_queries, n_queries] = tfidf.create_dictionary(queries)
 dictionary_text_tfidf = tfidf.compute_tfidf(dictionary_texts, dictionary_texts, max_docs, n_tweets)
-print(dictionary_text_tfidf)
+#print(dictionary_queries)
 dictionary_queries_tfidf = tfidf.compute_tfidf(dictionary_queries, dictionary_texts, max_queries, n_tweets)
+print(dictionary_queries_tfidf)
 
+for key in list(wp_similarities.keys()):
+    if EXPAND:
+        if dictionary_queries_tfidf[key] != {}:
+            dictionary_queries_tfidf[key][0] *= wp_similarities[key]
+        else:
+            dictionary_queries_tfidf[key] = {0: 0}
+    else:
+        if wp_similarities[key] != 1:
+            dictionary_queries_tfidf[key] = {0:0}
+print(dictionary_queries_tfidf)
 similarities = tfidf.calc_rank(dictionary_text_tfidf, dictionary_queries_tfidf, queries, n_tweets, n_queries)
-mapSimilarities = wnet.read_file(sys.argv[2])
-print(mapSimilarities)
+
 #print(dictionary)
 #print(dictionary_text_tfidf)
 
 # filtered_final_queries = get_queries(associations)
-print(similarities)
+#print(similarities)
 sorted_similarities = similarities[0]
 
-print(sorted_similarities)
+#print(sorted_similarities)
 sorted_similarities = sorted(sorted_similarities.items(), key=operator.itemgetter(1), reverse=True)
 print(sorted_similarities)
-print(corpus)
+#print(corpus)
