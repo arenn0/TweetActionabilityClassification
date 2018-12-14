@@ -28,8 +28,8 @@ The execution may take several seconds, depending on the amount of the data in i
 
 A couple of tunable parameters could be modified to explore the results:
 - line 13 on the 'main.py' file: the flag EXPAND could be set to false to not perform any kind of expansion of the keywords.
-- line 14 on the 'main.py' file: the flag TOP_N countains the number of the results displayed. We have experienced that the highest precision is reached within the first dozen, since the number of actionable tweets is extremely low.
-- line 2 on the 'tfidf.py' file: allows the user to choose whether they want to perform normalizaion of the tf-idf scores.
+- line 14 on the 'main.py' file: the flag TOP_N contains the number of the results displayed. We have experienced that the highest precision is reached within the first dozen, since the number of actionable tweets is extremely low.
+- line 2 on the 'tfidf.py' file: allows the user to choose whether they want to perform normalization of the tf-idf scores.
 
 ### Built With
  Windows and:
