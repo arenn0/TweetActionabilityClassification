@@ -33,7 +33,6 @@ def create_dictionary(words_):
 # We need filtered_final to compute tf denominator
 def compute_tfidf(dictionary, d, maxs, ndocs):
     table = {}
-    print(ndocs)
     for word in dictionary.keys():
 
         table[word] = {}

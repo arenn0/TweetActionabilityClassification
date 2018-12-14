@@ -11,7 +11,7 @@ dler.download("wordnet")
 import wnet
 
 EXPAND = True
-
+TOP_N = 10
 
 def preprocess_corpus(corpus):
     c = {}
@@ -56,8 +56,9 @@ def load_dataset (dirName):
             line_count = 0
             for row in csv_reader:
                 if line_count == 0:
+                    pass
                     # print("Hello")
-                    print(f'Column names are {", ".join(row)}')
+                    # print(f'Column names are {", ".join(row)}')
                 else:
                     corpus[directory_list[i]].append(row[5])
 
@@ -68,7 +69,6 @@ def load_dataset (dirName):
 
 def load_queries(fileName):
     mapSimilarities = wnet.read_file(sys.argv[2])
-    print(mapSimilarities)
     return {0: [list(mapSimilarities.keys())]}, mapSimilarities
 
 
@@ -100,7 +100,12 @@ similarities = tfidf.calc_rank(dictionary_text_tfidf, dictionary_queries_tfidf, 
 sorted_similarities = similarities[0]
 
 sorted_similarities = sorted(sorted_similarities.items(), key=operator.itemgetter(1), reverse=True)
+print("Number of Tweets")
+print(n_tweets)
+print("Expanded List:")
+print(wp_similarities)
+print("Top k results:")
 print(sorted_similarities)
-for i in range(20):
+for i in range(TOP_N):
     print(" ".join(list(tweets[sorted_similarities[i][0]])))
 

@@ -56,7 +56,7 @@ def expand_list(wordlist):
                     if k != word:
                         s_map[k] = v
 
-    print(s_map)
+    # print(s_map)
     return s_map
 
 
