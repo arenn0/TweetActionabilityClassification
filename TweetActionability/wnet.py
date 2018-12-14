@@ -72,6 +72,6 @@ def read_file(file):   # "ManuallyAnnotatedWords.txt"
         s_list.append(p[i].strip("\n"));
 
     print(s_list)
-    expand_list(s_list)
+    return expand_list(s_list)
 
-read_file("ManuallyAnnotatedWords.txt")
+# read_file("ManuallyAnnotatedWords.txt")

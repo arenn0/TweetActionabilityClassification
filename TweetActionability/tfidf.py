@@ -5,12 +5,13 @@ def create_dictionary(words_):
     dictionary = {}
     maxs = {}
     i=-1
-
+    tweets = {}
     for documentId in words_:
         maxrel = 0
         for tweetid in words_[documentId]:
             i += 1
             # print(word, end=' ')
+            tweets[i] = tweetid
             for word in tweetid:
                 if word not in dictionary:
                     dictionary[word] = {}
@@ -26,7 +27,8 @@ def create_dictionary(words_):
                     # print("max of " + str(documentId) + " is " + word + ": " + str(maxrel))
             maxs[i] = maxrel
 
-    return [dictionary, maxs, i + 1]
+
+    return [dictionary, maxs, i + 1, tweets]
 
 # We need filtered_final to compute tf denominator
 def compute_tfidf(dictionary, d, maxs, ndocs):
